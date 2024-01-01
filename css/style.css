@@ -1,0 +1,468 @@
+/* Start Global */
+
+:root {
+    --animation-duration: 500ms;
+    --color-skyBlue: #0078FF;
+    --color-skyBlue-light: rgba(0, 119, 255, .7);
+    --sky: #CDE1F8;
+    --boxShadow: 0 13px 8px -10px rgba(0, 0, 0, 0.1);
+    --box-shadow2: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #F5F5F5;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.bg-image {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.home-back-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-skyBlue);
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 999;
+    transition: all var(--animation-duration);
+}
+
+.layer {
+    background-color: var(--color-skyBlue-light);
+}
+
+.box-sh {
+    box-shadow: var(--boxShadow);
+}
+
+.section-description h3 {
+    font-size: 48px;
+}
+
+.section-description::after {
+    content: "";
+    width: 45px;
+    height: 5px;
+    background-color: var(--color-skyBlue);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+/* End Global */
+
+
+/* Start Navbar */
+
+nav {
+    background-color: #040404a4 !important;
+    font-weight: 600;
+}
+
+.navbar .navbar-nav .nav-link {
+    font-weight: 600;
+    position: relative;
+}
+
+.navbar .navbar-nav .nav-link::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    bottom: 0;
+    transition: width var(--animation-duration);
+}
+
+.navbar .navbar-nav .nav-item:hover ::before {
+    width: 60%;
+}
+
+body:not(body:has(:target)) .navbar .navbar-nav .nav-link.active::before,
+body:has(#Home:target) .navbar .navbar-nav .nav-link[href="#Home"]::before,
+body:has(#About:target) .navbar .navbar-nav .nav-link[href="#About"]::before,
+body:has(#Services:target) .navbar .navbar-nav .nav-link[href="#Services"]::before,
+body:has(#Work:target) .navbar .navbar-nav .nav-link[href="#Work"]::before,
+body:has(#Blog:target) .navbar .navbar-nav .nav-link[href="#Blog"]::before,
+body:has(#Contact:target) .navbar .navbar-nav .nav-link[href="#Contact"]::before {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 2px;
+    background-color: #fff;
+    bottom: 0;
+    transition: width var(--animation-duration);
+}
+
+.dropdown-menu {
+    --bs-dropdown-link-hover-color: var(--color-skyBlue);
+    --bs-dropdown-link-hover-bg: transparent;
+    --bs-dropdown-border-color: none;
+    --bs-dropdown-link-active-color: var(--color-skyBlue);
+    --bs-dropdown-link-active-bg: transparent;
+    box-shadow: var(--box-shadow2);
+}
+
+.dropdown-menu:hover a {
+    transition: color var(--animation-duration);
+}
+
+.dropend .dropdown-menu {
+    left: 101%;
+    top: 0;
+}
+
+.dropdown-toggle::after,
+.dropend .dropdown-toggle::after {
+    display: none;
+}
+
+.dropend:hover>.dropdown-menu {
+    display: block;
+}
+
+@media screen and (min-width:992px) {
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .navbar .navbar-nav .nav-link {
+        color: rgba(0, 0, 0, .8) !important;
+    }
+    .navbar .navbar-nav .nav-link::before {
+        display: none;
+    }
+    .navbar .navbar-nav .nav-link.active,
+    .navbar .navbar-nav .nav-link:hover {
+        color: var(--color-skyBlue) !important;
+    }
+    .collapse {
+        background-color: #fff;
+        position: absolute;
+        top: 60%;
+        left: 0;
+        right: 0;
+        margin: 20px;
+    }
+}
+
+.dropend .nav-link:hover {
+    color: var(--color-skyBlue) !important;
+}
+
+
+/* End Navbar */
+
+
+/* Start Home */
+
+#Home {
+    background: url("../images/hero-bg.jpg") fixed;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, .5);
+    height: 100vh;
+}
+
+#Home .home-title {
+    font-size: 2.8rem;
+}
+
+#Home .home-subtitle {
+    font-size: 1.5rem;
+}
+
+@media screen and (min-width:768px) {
+    #Home .home-title {
+        font-size: 4.5rem;
+    }
+    #Home .home-subtitle {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* End Home */
+
+
+/* Start About*/
+
+.container_skills {
+    width: 100%;
+    background-color: #CDE1F8;
+}
+
+.skills {
+    text-align: right;
+    height: 12px;
+    color: white;
+}
+
+.html,
+.css,
+.js,
+.php {
+    background-color: var(--color-skyBlue);
+}
+
+.html {
+    width: 90%;
+}
+
+.css {
+    width: 80%;
+}
+
+.js {
+    width: 65%;
+}
+
+.php {
+    width: 60%;
+}
+
+.About_me_title {
+    font-size: 32px;
+}
+
+.About_me_title::before {
+    content: "";
+    background-color: var(--color-skyBlue);
+    width: 100px;
+    height: 3.5px;
+    position: absolute;
+    bottom: -10px;
+}
+
+.font-span {
+    font-size: 16.8px !important;
+}
+
+
+/* End About*/
+
+
+/* Start Services */
+
+.card-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 10px solid var(--color-skyBlue);
+    transition-property: border-color, background-color;
+    transition-duration: var(--animation-duration);
+}
+
+.card-icon i {
+    font-size: 40px;
+}
+
+.card:hover .card-icon {
+    border-color: var(--sky);
+    background-color: var(--color-skyBlue);
+    color: white;
+}
+
+
+/* End Services */
+
+
+/* Start facts */
+
+#facts {
+    background-image: url("../images/counters-bg.jpg");
+}
+
+.facts-icon {
+    color: white;
+    height: 80px;
+    width: 80px;
+    font-size: 30px;
+    border: var(--sky) solid 10px;
+    border-radius: 50%;
+}
+
+
+/* End facts */
+
+
+/* Start portfolio */
+
+.portfolio-card-desc span {
+    font-size: 12px;
+}
+
+.portfolio-card-desc span:first-of-type,
+.portfolio-card-icon {
+    color: var(--color-skyBlue);
+}
+
+.portfolio-card-icon {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.portfolio-card-image {
+    overflow: hidden;
+}
+
+.portfolio-card-image img {
+    transition: transform 1s;
+}
+
+.portfolio-card:hover .portfolio-card-image img {
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+
+/* End portfolio */
+
+
+/* Start Developers */
+
+#developers {
+    background-image: url("../images/overlay-bg.jpg");
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+
+/* End Developers */
+
+
+/* Start Blog */
+
+#Blog a {
+    transition: color var(--animation-duration);
+}
+
+#Blog a:hover {
+    color: var(--color-skyBlue) !important;
+}
+
+#Blog img {
+    cursor: pointer;
+}
+
+#Blog .card1::before {
+    content: "TRAVEL";
+}
+
+#Blog .card2::before {
+    content: "COOKING";
+}
+
+#Blog .card3::before {
+    content: "WORK";
+}
+
+#Blog .card1::before,
+#Blog .card2::before,
+#Blog .card3::before {
+    position: absolute;
+    font-weight: 600;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    top: 0;
+    left: 50%;
+    border-radius: 5px;
+    width: 70px;
+    text-align: center;
+    padding: .3rem;
+    color: white;
+    background-color: var(--color-skyBlue);
+}
+
+.image-container {
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 0.625rem;
+}
+
+.card-footer span {
+    padding-top: 2px;
+}
+
+
+/* End Blog */
+
+
+/* Start Contact */
+
+#Contact {
+    background-image: url("../images/overlay-bg.jpg");
+}
+
+#Contact .ul-info i {
+    color: var(--color-skyBlue);
+}
+
+#Contact .social-icon {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: var(--color-skyBlue) 3.5px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-property: border-color, background-color;
+    transition-duration: var(--animation-duration);
+}
+
+#Contact .social-icon:hover {
+    background-color: var(--color-skyBlue);
+    border-color: var(--sky);
+}
+
+#Contact .social-icon:hover a {
+    color: white !important;
+}
+
+input::placeholder {
+    font-size: 15px;
+}
+
+
+/* End Contact* /
+
+/* Start Footer */
+
+#Footer {
+    background-color: #0062D3;
+    box-shadow: inset 1px 17px 8px -10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* End Footer */
